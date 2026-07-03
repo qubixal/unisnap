@@ -2,16 +2,18 @@
 //  unisnapApp.swift
 //  unisnap
 //
-//  Created by Leo Li on 3/7/2026.
+//  Created by qubixal on 3/7/2026.
 //
 
 import SwiftUI
 
 @main
 struct unisnapApp: App {
+    @NSApplicationDelegateAdaptor private var appDelegate: AppDelegate
+
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        Settings {
+            EmptyView()
         }
     }
 }

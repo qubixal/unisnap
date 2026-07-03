@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		8E64C0052FF7532000F89023 /* unisnapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0042FF7532000F89023 /* unisnapApp.swift */; };
-		8E64C0072FF7532000F89023 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0062FF7532000F89023 /* ContentView.swift */; };
+		8E64C02F2FF7532000F89023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0302FF7532000F89023 /* AppDelegate.swift */; };
+		8E64C0322FF7532000F89023 /* WindowListHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0312FF7532000F89023 /* WindowListHelper.swift */; };
+		8E64C0332FF7532000F89023 /* LayoutProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0342FF7532000F89023 /* LayoutProfile.swift */; };
+		8E64C0352FF7532000F89023 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0362FF7532000F89023 /* HotkeyManager.swift */; };
+		8E64C0372FF7532000F89023 /* ProfileEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0382FF7532000F89023 /* ProfileEditorView.swift */; };
+		8E64C03B2FF7532000F89023 /* WallpaperColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C03A2FF7532000F89023 /* WallpaperColors.swift */; };
+		8E64C03C2FF7532000F89023 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C03D2FF7532000F89023 /* SettingsView.swift */; };
+		8E64C03E2FF7532000F89023 /* ThemingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C03F2FF7532000F89023 /* ThemingSettings.swift */; };
+		8E64C0412FF7532000F89023 /* OrganiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0402FF7532000F89023 /* OrganiseView.swift */; };
+		8E64C0422FF7532000F89023 /* SharedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0432FF7532000F89023 /* SharedViews.swift */; };
 		8E64C0092FF7532100F89023 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E64C0082FF7532100F89023 /* Assets.xcassets */; };
 		8E64C00C2FF7532100F89023 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E64C00B2FF7532100F89023 /* Preview Assets.xcassets */; };
-		8E64C0172FF7532100F89023 /* unisnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0162FF7532100F89023 /* unisnapTests.swift */; };
-		8E64C0212FF7532100F89023 /* unisnapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0202FF7532100F89023 /* unisnapUITests.swift */; };
-		8E64C0232FF7532100F89023 /* unisnapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0222FF7532100F89023 /* unisnapUITestsLaunchTests.swift */; };
+		8E64C0172FF7532000F89023 /* unisnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0162FF7532000F89023 /* unisnapTests.swift */; };
+		8E64C0212FF7532000F89023 /* unisnapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0202FF7532000F89023 /* unisnapUITests.swift */; };
+		8E64C0232FF7532000F89023 /* unisnapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0222FF7532000F89023 /* unisnapUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,15 +45,24 @@
 /* Begin PBXFileReference section */
 		8E64C0012FF7532000F89023 /* unisnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unisnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E64C0042FF7532000F89023 /* unisnapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unisnapApp.swift; sourceTree = "<group>"; };
-		8E64C0062FF7532000F89023 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8E64C0302FF7532000F89023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8E64C0312FF7532000F89023 /* WindowListHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowListHelper.swift; sourceTree = "<group>"; };
+		8E64C0342FF7532000F89023 /* LayoutProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutProfile.swift; sourceTree = "<group>"; };
+		8E64C0362FF7532000F89023 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
+		8E64C0382FF7532000F89023 /* ProfileEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorView.swift; sourceTree = "<group>"; };
+		8E64C03A2FF7532000F89023 /* WallpaperColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperColors.swift; sourceTree = "<group>"; };
+		8E64C03D2FF7532000F89023 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8E64C03F2FF7532000F89023 /* ThemingSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemingSettings.swift; sourceTree = "<group>"; };
+		8E64C0402FF7532000F89023 /* OrganiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganiseView.swift; sourceTree = "<group>"; };
+		8E64C0432FF7532000F89023 /* SharedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViews.swift; sourceTree = "<group>"; };
 		8E64C0082FF7532100F89023 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E64C00B2FF7532100F89023 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8E64C00D2FF7532100F89023 /* unisnap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = unisnap.entitlements; sourceTree = "<group>"; };
 		8E64C0122FF7532100F89023 /* unisnapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unisnapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E64C0162FF7532100F89023 /* unisnapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unisnapTests.swift; sourceTree = "<group>"; };
-		8E64C01C2FF7532100F89023 /* unisnapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unisnapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E64C0202FF7532100F89023 /* unisnapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unisnapUITests.swift; sourceTree = "<group>"; };
-		8E64C0222FF7532100F89023 /* unisnapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unisnapUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8E64C0162FF7532000F89023 /* unisnapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unisnapTests.swift; sourceTree = "<group>"; };
+		8E64C01C2FF7532000F89023 /* unisnapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unisnapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E64C0202FF7532000F89023 /* unisnapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unisnapUITests.swift; sourceTree = "<group>"; };
+		8E64C0222FF7532000F89023 /* unisnapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unisnapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +114,16 @@
 			isa = PBXGroup;
 			children = (
 				8E64C0042FF7532000F89023 /* unisnapApp.swift */,
-				8E64C0062FF7532000F89023 /* ContentView.swift */,
+				8E64C0302FF7532000F89023 /* AppDelegate.swift */,
+				8E64C0342FF7532000F89023 /* LayoutProfile.swift */,
+				8E64C0362FF7532000F89023 /* HotkeyManager.swift */,
+				8E64C0382FF7532000F89023 /* ProfileEditorView.swift */,
+				8E64C03D2FF7532000F89023 /* SettingsView.swift */,
+				8E64C03F2FF7532000F89023 /* ThemingSettings.swift */,
+				8E64C0312FF7532000F89023 /* WindowListHelper.swift */,
+				8E64C03A2FF7532000F89023 /* WallpaperColors.swift */,
+				8E64C0402FF7532000F89023 /* OrganiseView.swift */,
+				8E64C0432FF7532000F89023 /* SharedViews.swift */,
 				8E64C0082FF7532100F89023 /* Assets.xcassets */,
 				8E64C00D2FF7532100F89023 /* unisnap.entitlements */,
 				8E64C00A2FF7532100F89023 /* Preview Content */,
@@ -259,8 +286,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E64C0072FF7532000F89023 /* ContentView.swift in Sources */,
 				8E64C0052FF7532000F89023 /* unisnapApp.swift in Sources */,
+				8E64C02F2FF7532000F89023 /* AppDelegate.swift in Sources */,
+				8E64C0332FF7532000F89023 /* LayoutProfile.swift in Sources */,
+				8E64C0352FF7532000F89023 /* HotkeyManager.swift in Sources */,
+				8E64C0372FF7532000F89023 /* ProfileEditorView.swift in Sources */,
+				8E64C0322FF7532000F89023 /* WindowListHelper.swift in Sources */,
+				8E64C03B2FF7532000F89023 /* WallpaperColors.swift in Sources */,
+				8E64C03C2FF7532000F89023 /* SettingsView.swift in Sources */,
+				8E64C03E2FF7532000F89023 /* ThemingSettings.swift in Sources */,
+				8E64C0412FF7532000F89023 /* OrganiseView.swift in Sources */,
+				8E64C0422FF7532000F89023 /* SharedViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,8 +461,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"unisnap/Preview Content\"";
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,8 +488,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"unisnap/Preview Content\"";
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
