@@ -45,7 +45,7 @@ Submitted as a project for Hack Club.
 - **Custom Theming** (can extracts dominant colours straight from your desktop wallpaper, but in beta)
 - **Runs all in Toolbar** (no Dock icon, status bar icon dynamically changes with active layout too.)
 
-![Feature Overview 1](readme-media/organise-windows-orig.png)
+<div align="center">![Feature Overview 1](readme-media/organise-windows-orig.png)</div>
 
 ---
 
@@ -69,13 +69,15 @@ Submitted as a project for Hack Club.
 1. Download `unisnap.dmg` from the releases page (or from the repo root)
 2. Open the `.dmg` file
 3. Drag **Unisnap** into your Applications folder
-![Installation DMG](readme-media/dmg.gif)
+
+<div align="center">![Installation DMG](readme-media/dmg.gif)</div>
 
 4. Launch Unisnap from Applications 
 > **Note:** You will need to option + click the app as I'm not verified (and may be trying to hack into your computer or smth///)
 5. Grant Accessibility permissions when prompted
 > **Note:** Accessibility permissions are required. The app will prompt you and open System Settings automatically; then them on for Unisnap.
-![System Prompt](readme-media/system-prompt.png)
+
+<div align="center" style="width: 200px">![System Prompt](readme-media/system-prompt.png)</div>
 
 ### Build from Source
 
@@ -117,13 +119,13 @@ Unisnap requires Accessibility access to detect and reposition windows. On first
 4. Enable **Unisnap** in the list
 5. **Restart Unisnap.**
 
-![System Prompt](readme-media/system-prompt.png)
+<div align="center" style="width: 200px">![System Prompt](readme-media/system-prompt.png)</div>
 
 ### Using Layout Profiles
 
 Click the Unisnap menu bar icon to see available layouts. Favourited profiles appear at the top; others are under **More >**.
 
-![Menu Bar](readme-media/menu-bar.png)
+<div align="center" style="width: 150px">![Menu Bar](readme-media/menu-bar.png)</div>
 
 ---
 
@@ -149,7 +151,7 @@ Open **Settings > Profiles** to create custom layouts:
 3. Drag across grid cells to create zones
 4. Name your profile and mark it as a favourite if desired
 
-![Profile Editor](readme-media/profile-editor.gif)
+<div align="center">![Profile Editor](readme-media/profile-editor.gif)</div>
 
 ---
 
@@ -165,7 +167,7 @@ Configure global hotkeys in **Settings > Shortcuts**.
 
 The combination is saved automatically after entering.
 
-![Shortcuts](readme-media/shortcuts.png)
+<div align="center" style="width: 500px">![Shortcuts](readme-media/shortcuts.png)</div>
 
 ---
 
@@ -200,7 +202,7 @@ Override automatic theming with custom colours:
 3. Use the colour pickers to select custom gradient colours
 4. Adjust the background opacity slider to taste
 
-![Theming](readme-media/theming.png)
+<div align="center" style="width: 500px">![Theming](readme-media/theming.png)</div>
 
 ---
 
