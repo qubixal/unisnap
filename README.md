@@ -69,13 +69,13 @@ Submitted as a project for Hack Club.
 1. Download `unisnap.dmg` from the releases page (or from the repo root)
 2. Open the `.dmg` file
 3. Drag **Unisnap** into your Applications folder
-![Installation DMG](assets/dmg.gif)
+![Installation DMG](readme-media/dmg.gif)
 
 4. Launch Unisnap from Applications 
 > **Note:** You will need to option + click the app as I'm not verified (and may be trying to hack into your computer or smth///)
 5. Grant Accessibility permissions when prompted
 > **Note:** Accessibility permissions are required. The app will prompt you and open System Settings automatically; then them on for Unisnap.
-![System Prompt](assets/system-prompt.png)
+![System Prompt](readme-media/system-prompt.png)
 
 ### Build from Source
 
@@ -117,13 +117,13 @@ Unisnap requires Accessibility access to detect and reposition windows. On first
 4. Enable **Unisnap** in the list
 5. **Restart Unisnap.**
 
-![System Prompt](assets/system-prompt.png)
+![System Prompt](readme-media/system-prompt.png)
 
 ### Using Layout Profiles
 
 Click the Unisnap menu bar icon to see available layouts. Favourited profiles appear at the top; others are under **More >**.
 
-![Menu Bar](assets/menu-bar.png)
+![Menu Bar](readme-media/menu-bar.png)
 
 ---
 
@@ -149,7 +149,7 @@ Open **Settings > Profiles** to create custom layouts:
 3. Drag across grid cells to create zones
 4. Name your profile and mark it as a favourite if desired
 
-![Profile Editor](assets/profile-editor.gif)
+![Profile Editor](readme-media/profile-editor.gif)
 
 ---
 
@@ -165,7 +165,7 @@ Configure global hotkeys in **Settings > Shortcuts**.
 
 The combination is saved automatically after entering.
 
-![Shortcuts](assets/shortcuts.png)
+![Shortcuts](readme-media/shortcuts.png)
 
 ---
 
@@ -178,7 +178,7 @@ The Organise Windows overlay provides a visual way to assign windows to the outl
 3. A window picker appears showing all open windows with their app icons and titles
 4. Select a window to snap it into the chosen zone
 
-![Organise Windows](assets/organise-windows.png)
+![Organise Windows](readme-media/organise-windows.png)
 
 ---
 
@@ -200,7 +200,7 @@ Override automatic theming with custom colours:
 3. Use the colour pickers to select custom gradient colours
 4. Adjust the background opacity slider to taste
 
-![Theming](assets/theming.png)
+![Theming](readme-media/theming.png)
 
 ---
 
