@@ -81,11 +81,18 @@ Submitted as a project for Hack Club.
 </div>
 
 4. Launch Unisnap from Applications 
-> **Note:** You will need to option + click the app as I'm not verified (and may be trying to hack into your computer or smth///)
+> **Note:** You will need to **ctrl + click** the app as I'm not verified (and may be trying to hack into your computer or smth///)
 > **Quarantine Issue:** If macOS blocks the app entirely, run this in Terminal to remove the quarantine attribute:
 > ```bash
 > xattr -d com.apple.quarantine /Applications/Unisnap.app
 > ```
+Usually a ctrl + click -> open should fix it though (?)
+
+<div align="center">
+
+![Opening](readme-media/open.gif)
+
+</div>
 
 5. Grant Accessibility permissions when prompted
 > **Note:** Accessibility permissions are required. The app will prompt you and open System Settings automatically; then them on for Unisnap.
@@ -292,7 +299,7 @@ All settings are stored locally in `UserDefaults` under the `unisnap_` prefix:
 
 ## Known Bugs / Limitations
 
-- **macOS Quarantine** — app isn't signed so macOS may quarantine it. Fix: `xattr -d com.apple.quarantine /Applications/Unisnap.app`
+- **macOS Quarantine** — app isn't signed so macOS may quarantine it. Run in the terminal: `xattr -d com.apple.quarantine /Applications/Unisnap.app` (though an ctrl+click -> open usually fixes it)
 - **Accessibility perms required** — some security software may block unisnap's Accessibility permissions;
 - **Menu bar only** — No Dock icon to minimise on-screen footprint. **Force-quit via literally any method if needed.**
 - **App Sandbox disabled** — Required for Accessibility API access. dw your data is not being sold in my basement
