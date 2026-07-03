@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8E64C0052FF7532000F89023 /* unisnapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0042FF7532000F89023 /* unisnapApp.swift */; };
+		8E64C0072FF7532000F89023 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0062FF7532000F89023 /* ContentView.swift */; };
+		8E64C0092FF7532100F89023 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E64C0082FF7532100F89023 /* Assets.xcassets */; };
+		8E64C00C2FF7532100F89023 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E64C00B2FF7532100F89023 /* Preview Assets.xcassets */; };
+		8E64C0172FF7532100F89023 /* unisnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0162FF7532100F89023 /* unisnapTests.swift */; };
+		8E64C0212FF7532100F89023 /* unisnapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0202FF7532100F89023 /* unisnapUITests.swift */; };
+		8E64C0232FF7532100F89023 /* unisnapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0222FF7532100F89023 /* unisnapUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8E64C0132FF7532100F89023 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E64BFF92FF7532000F89023 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E64C0002FF7532000F89023;
+			remoteInfo = unisnap;
+		};
+		8E64C01D2FF7532100F89023 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E64BFF92FF7532000F89023 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E64C0002FF7532000F89023;
+			remoteInfo = unisnap;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8E64C0012FF7532000F89023 /* unisnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unisnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E64C0042FF7532000F89023 /* unisnapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unisnapApp.swift; sourceTree = "<group>"; };
+		8E64C0062FF7532000F89023 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8E64C0082FF7532100F89023 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8E64C00B2FF7532100F89023 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8E64C00D2FF7532100F89023 /* unisnap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = unisnap.entitlements; sourceTree = "<group>"; };
+		8E64C0122FF7532100F89023 /* unisnapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unisnapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E64C0162FF7532100F89023 /* unisnapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unisnapTests.swift; sourceTree = "<group>"; };
+		8E64C01C2FF7532100F89023 /* unisnapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unisnapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E64C0202FF7532100F89023 /* unisnapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unisnapUITests.swift; sourceTree = "<group>"; };
+		8E64C0222FF7532100F89023 /* unisnapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unisnapUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8E64BFFE2FF7532000F89023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E64C00F2FF7532100F89023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E64C0192FF7532100F89023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8E64BFF82FF7532000F89023 = {
+			isa = PBXGroup;
+			children = (
+				8E64C0032FF7532000F89023 /* unisnap */,
+				8E64C0152FF7532100F89023 /* unisnapTests */,
+				8E64C01F2FF7532100F89023 /* unisnapUITests */,
+				8E64C0022FF7532000F89023 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8E64C0022FF7532000F89023 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8E64C0012FF7532000F89023 /* unisnap.app */,
+				8E64C0122FF7532100F89023 /* unisnapTests.xctest */,
+				8E64C01C2FF7532100F89023 /* unisnapUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8E64C0032FF7532000F89023 /* unisnap */ = {
+			isa = PBXGroup;
+			children = (
+				8E64C0042FF7532000F89023 /* unisnapApp.swift */,
+				8E64C0062FF7532000F89023 /* ContentView.swift */,
+				8E64C0082FF7532100F89023 /* Assets.xcassets */,
+				8E64C00D2FF7532100F89023 /* unisnap.entitlements */,
+				8E64C00A2FF7532100F89023 /* Preview Content */,
+			);
+			path = unisnap;
+			sourceTree = "<group>";
+		};
+		8E64C00A2FF7532100F89023 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8E64C00B2FF7532100F89023 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8E64C0152FF7532100F89023 /* unisnapTests */ = {
+			isa = PBXGroup;
+			children = (
+				8E64C0162FF7532100F89023 /* unisnapTests.swift */,
+			);
+			path = unisnapTests;
+			sourceTree = "<group>";
+		};
+		8E64C01F2FF7532100F89023 /* unisnapUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8E64C0202FF7532100F89023 /* unisnapUITests.swift */,
+				8E64C0222FF7532100F89023 /* unisnapUITestsLaunchTests.swift */,
+			);
+			path = unisnapUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8E64C0002FF7532000F89023 /* unisnap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E64C0262FF7532100F89023 /* Build configuration list for PBXNativeTarget "unisnap" */;
+			buildPhases = (
+				8E64BFFD2FF7532000F89023 /* Sources */,
+				8E64BFFE2FF7532000F89023 /* Frameworks */,
+				8E64BFFF2FF7532000F89023 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = unisnap;
+			productName = unisnap;
+			productReference = 8E64C0012FF7532000F89023 /* unisnap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8E64C0112FF7532100F89023 /* unisnapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E64C0292FF7532100F89023 /* Build configuration list for PBXNativeTarget "unisnapTests" */;
+			buildPhases = (
+				8E64C00E2FF7532100F89023 /* Sources */,
+				8E64C00F2FF7532100F89023 /* Frameworks */,
+				8E64C0102FF7532100F89023 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E64C0142FF7532100F89023 /* PBXTargetDependency */,
+			);
+			name = unisnapTests;
+			productName = unisnapTests;
+			productReference = 8E64C0122FF7532100F89023 /* unisnapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8E64C01B2FF7532100F89023 /* unisnapUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E64C02C2FF7532100F89023 /* Build configuration list for PBXNativeTarget "unisnapUITests" */;
+			buildPhases = (
+				8E64C0182FF7532100F89023 /* Sources */,
+				8E64C0192FF7532100F89023 /* Frameworks */,
+				8E64C01A2FF7532100F89023 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E64C01E2FF7532100F89023 /* PBXTargetDependency */,
+			);
+			name = unisnapUITests;
+			productName = unisnapUITests;
+			productReference = 8E64C01C2FF7532100F89023 /* unisnapUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8E64BFF92FF7532000F89023 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					8E64C0002FF7532000F89023 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					8E64C0112FF7532100F89023 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 8E64C0002FF7532000F89023;
+					};
+					8E64C01B2FF7532100F89023 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 8E64C0002FF7532000F89023;
+					};
+				};
+			};
+			buildConfigurationList = 8E64BFFC2FF7532000F89023 /* Build configuration list for PBXProject "unisnap" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8E64BFF82FF7532000F89023;
+			productRefGroup = 8E64C0022FF7532000F89023 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8E64C0002FF7532000F89023 /* unisnap */,
+				8E64C0112FF7532100F89023 /* unisnapTests */,
+				8E64C01B2FF7532100F89023 /* unisnapUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8E64BFFF2FF7532000F89023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E64C00C2FF7532100F89023 /* Preview Assets.xcassets in Resources */,
+				8E64C0092FF7532100F89023 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E64C0102FF7532100F89023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E64C01A2FF7532100F89023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8E64BFFD2FF7532000F89023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E64C0072FF7532000F89023 /* ContentView.swift in Sources */,
+				8E64C0052FF7532000F89023 /* unisnapApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E64C00E2FF7532100F89023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E64C0172FF7532100F89023 /* unisnapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E64C0182FF7532100F89023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E64C0212FF7532100F89023 /* unisnapUITests.swift in Sources */,
+				8E64C0232FF7532100F89023 /* unisnapUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8E64C0142FF7532100F89023 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8E64C0002FF7532000F89023 /* unisnap */;
+			targetProxy = 8E64C0132FF7532100F89023 /* PBXContainerItemProxy */;
+		};
+		8E64C01E2FF7532100F89023 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8E64C0002FF7532000F89023 /* unisnap */;
+			targetProxy = 8E64C01D2FF7532100F89023 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8E64C0242FF7532100F89023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8E64C0252FF7532100F89023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		8E64C0272FF7532100F89023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = unisnap/unisnap.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"unisnap/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.qubixal.unisnap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8E64C0282FF7532100F89023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = unisnap/unisnap.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"unisnap/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.qubixal.unisnap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		8E64C02A2FF7532100F89023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.qubixal.unisnapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/unisnap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/unisnap";
+			};
+			name = Debug;
+		};
+		8E64C02B2FF7532100F89023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.qubixal.unisnapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/unisnap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/unisnap";
+			};
+			name = Release;
+		};
+		8E64C02D2FF7532100F89023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.qubixal.unisnapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = unisnap;
+			};
+			name = Debug;
+		};
+		8E64C02E2FF7532100F89023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.qubixal.unisnapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = unisnap;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8E64BFFC2FF7532000F89023 /* Build configuration list for PBXProject "unisnap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E64C0242FF7532100F89023 /* Debug */,
+				8E64C0252FF7532100F89023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E64C0262FF7532100F89023 /* Build configuration list for PBXNativeTarget "unisnap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E64C0272FF7532100F89023 /* Debug */,
+				8E64C0282FF7532100F89023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E64C0292FF7532100F89023 /* Build configuration list for PBXNativeTarget "unisnapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E64C02A2FF7532100F89023 /* Debug */,
+				8E64C02B2FF7532100F89023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E64C02C2FF7532100F89023 /* Build configuration list for PBXNativeTarget "unisnapUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E64C02D2FF7532100F89023 /* Debug */,
+				8E64C02E2FF7532100F89023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8E64BFF92FF7532000F89023 /* Project object */;
+}
