@@ -131,12 +131,6 @@ Unisnap requires Accessibility access to detect and reposition windows. On first
 4. Enable **Unisnap** in the list
 5. **Restart Unisnap.**
 
-<div
-
-![System Prompt](readme-media/system-prompt.png)
-
-</div>
-
 ### Using Layout Profiles
 
 Click the Unisnap menu bar icon to see available layouts. Favourited profiles appear at the top; others are under **More >**.
