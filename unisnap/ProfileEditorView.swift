@@ -1,8 +1,8 @@
 //
 //  ProfileEditorView.swift
-//  unisnap
+//  Profile editor view
 //
-//  Created by unisnap on 3/7/2026.
+//  unisnap
 //
 
 import SwiftUI
@@ -36,11 +36,10 @@ struct ProfileEditorView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     HStack {
                         Button(action: {
-                            store.profiles[idx].isFavourite.toggle()
-                            store.save()
+                            store.toggleFavourite(for: store.profiles[idx].id)
                         }) {
                             Image(systemName: store.profiles[idx].isFavourite ? "star.fill" : "star")
-                                .foregroundColor(store.profiles[idx].isFavourite ? .yellow : .secondary)
+                                .foregroundStyle(store.profiles[idx].isFavourite ? .yellow : .secondary)
                                 .font(.system(size: 16))
                         }
                         .buttonStyle(.borderless)
@@ -51,12 +50,13 @@ struct ProfileEditorView: View {
                                 store.save()
                             }
                         Button(action: { deleteProfile(at: idx) }) {
-                            Image(systemName: "trash").foregroundColor(.red)
+                            Image(systemName: "trash").foregroundStyle(.red)
                         }
                         .buttonStyle(.borderless)
                     }
 
                     HotkeyRecorderRow(
+                        label: "Shortcut:",
                         displayString: profile.hotkey?.displayString,
                         set: { combo in
                             store.profiles[idx].hotkey = combo
@@ -296,7 +296,7 @@ struct DragGrid: View {
 
                     Text("\(i + 1)")
                         .font(.system(.caption, design: .rounded))
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .shadow(color: .black.opacity(0.4), radius: 1)
                         .position(x: rect.midX, y: rect.midY)
                         .allowsHitTesting(false)
@@ -304,10 +304,10 @@ struct DragGrid: View {
 
                 if let start = dragStart, let end = dragEnd {
                     let sel = dragSelection(start: start, end: end)
-                    let rect = cellRect(col: sel.minCol, row: sel.maxRow,
-                                        colSpan: sel.maxCol - sel.minCol + 1,
-                                        rowSpan: sel.maxRow - sel.minRow + 1,
-                                        cellW: cellW, cellH: cellH, rows: profile.rows)
+                    let dragZone = Zone(column: sel.minCol, row: sel.minRow,
+                                        columnSpan: sel.maxCol - sel.minCol + 1,
+                                        rowSpan: sel.maxRow - sel.minRow + 1)
+                    let rect = dragZone.cellRect(cellW: cellW, cellH: cellH, rows: profile.rows)
                     RoundedRectangle(cornerRadius: 4, style: .continuous)
                         .fill(Color.accentColor.opacity(0.3))
                         .overlay {
@@ -359,15 +359,6 @@ struct DragGrid: View {
 
     private func dragSelection(start: (col: Int, row: Int), end: (col: Int, row: Int)) -> (minCol: Int, maxCol: Int, minRow: Int, maxRow: Int) {
         (min(start.col, end.col), max(start.col, end.col), min(start.row, end.row), max(start.row, end.row))
-    }
-
-    private func cellRect(col: Int, row: Int, colSpan: Int, rowSpan: Int, cellW: CGFloat, cellH: CGFloat, rows: Int) -> CGRect {
-        CGRect(
-            x: CGFloat(col) * cellW,
-            y: CGFloat(rows - 1 - row - rowSpan + 1) * cellH,
-            width: cellW * CGFloat(colSpan),
-            height: cellH * CGFloat(rowSpan)
-        )
     }
 
     private func applyDrag(start: (col: Int, row: Int), end: (col: Int, row: Int)) {

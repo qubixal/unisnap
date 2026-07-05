@@ -1,8 +1,8 @@
 //
 //  LayoutProfile.swift
+//  Profile layout definitions
 //  unisnap
 //
-//  Created by unisnap on 3/7/2026.
 //
 
 import Cocoa
@@ -10,7 +10,7 @@ import Combine
 
 // MARK: - Grid Zone (column/row based, max 4 columns × 3 rows)
 
-struct Zone: Codable, Identifiable, Equatable {
+struct Zone: Codable, Identifiable {
     var id = UUID()
     var column: Int      // 0-based
     var row: Int         // 0-based (0 = bottom)
@@ -22,7 +22,7 @@ struct Zone: Codable, Identifiable, Equatable {
         let rowHeight = screen.height / CGFloat(rows)
         return NSRect(
             x: screen.origin.x + CGFloat(column) * colWidth,
-            y: screen.origin.y + CGFloat(rows - row - rowSpan) * rowHeight,
+            y: screen.origin.y + CGFloat(row) * rowHeight,
             width: colWidth * CGFloat(columnSpan),
             height: rowHeight * CGFloat(rowSpan)
         )
@@ -119,7 +119,7 @@ struct LayoutProfile: Codable, Identifiable {
 
             for zone in zones {
                 let x = inset + CGFloat(zone.column) * cellW
-                let y = inset + CGFloat(zone.row) * cellH
+                let y = inset + CGFloat(rows - zone.row - zone.rowSpan) * cellH
                 let w = cellW * CGFloat(zone.columnSpan)
                 let h = cellH * CGFloat(zone.rowSpan)
                 let zoneRect = NSRect(x: x, y: y, width: w, height: h)
@@ -203,15 +203,17 @@ extension LayoutProfile {
 final class ProfileStore: ObservableObject {
     @Published var profiles: [LayoutProfile] = []
     @Published var quickswapHotkey: HotkeyCombo?
+    @Published var quickswapReverseHotkey: HotkeyCombo?
     @Published var organiseHotkey: HotkeyCombo?
 
     private let profilesKey = "unisnap_profiles"
     private let quickswapKey = "unisnap_quickswap_hotkey"
+    private let quickswapReverseKey = "unisnap_quickswap_reverse_hotkey"
     private let organiseKey = "unisnap_organise_hotkey"
 
     init() { load() }
 
-    func load() {
+    private func load() {
         if let data = UserDefaults.standard.data(forKey: profilesKey),
            let decoded = try? JSONDecoder().decode([LayoutProfile].self, from: data) {
             profiles = decoded
@@ -227,6 +229,10 @@ final class ProfileStore: ObservableObject {
            let decoded = try? JSONDecoder().decode(HotkeyCombo.self, from: data) {
             quickswapHotkey = decoded
         }
+        if let data = UserDefaults.standard.data(forKey: quickswapReverseKey),
+           let decoded = try? JSONDecoder().decode(HotkeyCombo.self, from: data) {
+            quickswapReverseHotkey = decoded
+        }
         if let data = UserDefaults.standard.data(forKey: organiseKey),
            let decoded = try? JSONDecoder().decode(HotkeyCombo.self, from: data) {
             organiseHotkey = decoded
@@ -240,15 +246,31 @@ final class ProfileStore: ObservableObject {
         if let hotkey = quickswapHotkey,
            let data = try? JSONEncoder().encode(hotkey) {
             UserDefaults.standard.set(data, forKey: quickswapKey)
+        } else {
+            UserDefaults.standard.removeObject(forKey: quickswapKey)
+        }
+        if let hotkey = quickswapReverseHotkey,
+           let data = try? JSONEncoder().encode(hotkey) {
+            UserDefaults.standard.set(data, forKey: quickswapReverseKey)
+        } else {
+            UserDefaults.standard.removeObject(forKey: quickswapReverseKey)
         }
         if let hotkey = organiseHotkey,
            let data = try? JSONEncoder().encode(hotkey) {
             UserDefaults.standard.set(data, forKey: organiseKey)
+        } else {
+            UserDefaults.standard.removeObject(forKey: organiseKey)
         }
     }
 
     func addProfile(_ profile: LayoutProfile) {
         profiles.append(profile)
+        save()
+    }
+
+    func toggleFavourite(for id: UUID) {
+        guard let idx = profiles.firstIndex(where: { $0.id == id }) else { return }
+        profiles[idx].isFavourite.toggle()
         save()
     }
 }

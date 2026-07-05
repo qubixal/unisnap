@@ -1,6 +1,6 @@
-# <p align="center"> Unisnap </p>
+# <p align="center"> unisnap </p>
 
-<div align="center"> A lightweight macOS toolbar utility for window management. All you now need to organise your windows into custom and efficient workflows is a left mouse button... (also configurable with keyboard shortcuts!).
+<div align="center"> A lightweight macOS toolbar utility for window management.
 
 ![Banner](readme-media/banner.png)
 
@@ -9,7 +9,8 @@ Submitted as a project for Hack Club.
 [![Hack Club](https://img.shields.io/badge/Hack%20Club-Project-EB3742?style=flat-square)](https://hackclub.com)
 [![Platform](https://img.shields.io/badge/platform-macOS%2014.5+-blue?style=flat-square)](https://apple.com)
 [![Swift](https://img.shields.io/badge/Swift-5.0+-orange?style=flat-square)](https://swift.org)
-[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)</div>
+[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
+[![Version](https://img.shields.io/badge/version-v0.1-purple?style=flat-square)](https://github.com/qubixal/unisnap/releases)</div>
 
 ---
 
@@ -21,10 +22,11 @@ Submitted as a project for Hack Club.
   - [Pre-built Release](#pre-built-release)
   - [Build from Source](#build-from-source)
   - [Build via CLI](#build-via-cli)
+- [Uninstalling](#uninstalling)
 - [Getting Started](#getting-started)
 - [Layout Profiles](#layout-profiles)
 - [Keyboard Shortcuts](#keyboard-shortcuts)
-- [Organize Windows Overlay](#organize-windows-overlay)
+- [Organise Windows Overlay](#organise-windows-overlay)
 - [Theming](#theming)
 - [How It Works](#how-it-works)
 - [Project Structure](#project-structure)
@@ -39,11 +41,14 @@ Submitted as a project for Hack Club.
 
 ## Features
 
-- **Customisable Window Snapping**
+Why not use rectangle, raycast, etc.?
+
+- **Minimal Footprint**: Runs in the menu bar using as little as **~24MB of memory**
+- **Instant workflow**: unisnap configures ALL open windows at once, saving you precious time.
+- **Automatic Window Snapping**
 - **Customisable Window Profiles** (4 Built-in + 3727 possible combinations!)
-- **Configurable Global Hotkeys** but you only need a left mouse button!
-- **Custom Theming** (can extracts dominant colours straight from your desktop wallpaper, but in beta)
-- **Runs all in Toolbar** (no Dock icon, status bar icon dynamically changes with active layout too.)
+- **Configurable Global Hotkeys** (but you only need a left mouse button!)
+- **Configurable Theming** (uses accent colour of desktop)
 
 <div align="center">
 
@@ -72,7 +77,7 @@ Submitted as a project for Hack Club.
 
 1. Download `unisnap.dmg` from the releases page (or from the repo root)
 2. Open the `.dmg` file
-3. Drag **Unisnap** into your Applications folder
+3. Drag **unisnap** into your Applications folder
 
 <div align="center">
 
@@ -80,11 +85,11 @@ Submitted as a project for Hack Club.
 
 </div>
 
-4. Launch Unisnap from Applications 
+4. Launch unisnap from Applications 
 > **Note:** You will need to **ctrl + click** the app as I'm not verified (and may be trying to hack into your computer or smth///)
 > **Quarantine Issue:** If macOS blocks the app entirely, run this in Terminal to remove the quarantine attribute:
 > ```bash
-> xattr -d com.apple.quarantine /Applications/Unisnap.app
+> xattr -d com.apple.quarantine /Applications/unisnap.app
 > ```
 Usually a ctrl + click -> open should fix it though (?)
 
@@ -95,7 +100,7 @@ Usually a ctrl + click -> open should fix it though (?)
 </div>
 
 5. Grant Accessibility permissions when prompted
-> **Note:** Accessibility permissions are required. The app will prompt you and open System Settings automatically; then them on for Unisnap.
+> **Note:** Accessibility permissions are required. The app will prompt you and open System Settings automatically; then them on for unisnap.
 
 <div align="center" style="width: 200px">
 
@@ -132,20 +137,35 @@ xcodebuild -project unisnap.xcodeproj -scheme unisnap -configuration Release bui
 
 ---
 
+## Uninstalling
+
+1. Quit unisnap from the menu bar (or force-quit)
+2. Delete the app by dragging to bin / right click > delete / terminal:
+   ```bash
+   rm -rf /Applications/unisnap.app
+   ```
+3. Remove stored preferences:
+   ```bash
+   defaults delete com.qubixal.unisnap
+   ```
+4. (Optional) Revoke Accessibility permissions in **System Settings > Privacy & Security > Accessibility**.
+
+---
+
 ## Getting Started
 
 ### Granting Accessibility Permissions
 
-Unisnap requires Accessibility access to detect and reposition windows. On first launch:
+unisnap requires Accessibility access to detect and reposition windows. On first launch:
 
 1. A system dialog will appear requesting Accessibility access
 2. Click **Open System Settings** (or, navigate to **Privacy & Security > Accessibility**)
-4. Enable **Unisnap** in the list
-5. **Restart Unisnap.**
+3. Enable **unisnap** in the list
+4. **Restart unisnap.**
 
 ### Using Layout Profiles
 
-Click the Unisnap menu bar icon to see available layouts. Favourited profiles appear at the top; others are under **More >**.
+Click the unisnap menu bar icon to see available layouts. Favourited profiles appear at the top; others are under **More >**.
 
 <div align="center" style="width: 150px">
 
@@ -168,8 +188,6 @@ Click the Unisnap menu bar icon to see available layouts. Favourited profiles ap
 
 ### Custom Profiles
 
-btw there are 3727 other mathematically conigurable layouts apart from 4 built-in
-
 Open **Settings > Profiles** to create custom layouts:
 
 1. Click **New Profile**
@@ -191,7 +209,8 @@ Configure global hotkeys in **Settings > Shortcuts**.
 
 | Action | Default | Description |
 |---|---|---|
-| **Quickcycle** | `Ctrl + Option + ←/→` | Cycle through all profiles |
+| **Quickcycle Forward** | `Ctrl + Option + →` | Cycle forward through profiles |
+| **Quickcycle Backward** | `Ctrl + Option + ←` | Cycle backward through profiles |
 | **Organise Windows** | `Ctrl + Option + O` | Open to organise window layout |
 | **Activate Profile** | Unassigned | Assign a hotkey to a specific profile |
 
@@ -220,21 +239,17 @@ The Organise Windows overlay provides a visual way to assign windows to the outl
 
 ## Theming
 
-### Automatic Wallpaper Adaptation (Beta)
+### Automatic System Adaptation
 
-When enabled, Unisnap extracts dominant colours from your desktop wallpaper using K-means clustering and applies them as a gradient background throughout the app.
-
-- Toggle in **Settings > General > Auto-adapt to Wallpaper**
-- Updates dynamically when your wallpaper changes
+When enabled, unisnap creates a gradient theme from your system accent colour Toggle in **Settings > General > Auto-adapt to System**.
 
 ### Manual Theming
 
-Override automatic theming with custom colours:
+Or, bring your own two colours:
 
 1. Open **Settings > General**
-2. Disable **Auto-adapt to Wallpaper**
-3. Use the colour pickers to select custom gradient colours
-4. Adjust the background opacity slider to taste
+2. Disable **Auto-adapt to System**
+3. Use the colour pickers to select colours + adjust the background opacity slider.
 
 <div align="center" style="width: 500px">
 
@@ -246,11 +261,12 @@ Override automatic theming with custom colours:
 
 ## How It Works
 
-Unisnap uses the macOS Accessibility API (`AXUIElement`) to:
+unisnap uses the macOS Accessibility API (`AXUIElement`) to:
 
 - Keep track of all visible windows
-- Read window attributes (like title, position, size, minimised state)
+- Read window attributes (like title, position, size, minimised state, minimum size)
 - Reposition and resize windows to match layout zone coordinates
+- Auto-swap windows into larger zones when they don't fit their assigned zone
 
 This configuration is stored locally via `UserDefaults`.
 There are no network requests, no cloud, no selling data, no AI, no DLSS, no i don't use Arch btw.
@@ -272,11 +288,9 @@ unisnap/
 │   ├── ProfileEditorView.swift # Drag-to-create zone grid editor
 │   ├── SharedViews.swift       # Reusable UI components
 │   ├── ThemingSettings.swift   # Persisted theming preferences
-│   ├── WallpaperColors.swift   # Wallpaper colour extraction (K-means)
+│   ├── SystemThemeProvider.swift # System accent + appearance provider
 │   └── Assets.xcassets/        # App icons and accent colour
-├── unisnap.xcodeproj/          # Xcode project
-├── unisnapTests/               # Unit tests (placeholder)
-└── unisnapUITests/             # UI tests (placeholder)
+└── unisnap.xcodeproj/          # Xcode project
 ```
 
 ---
@@ -288,9 +302,10 @@ All settings are stored locally in `UserDefaults` under the `unisnap_` prefix:
 | Key | Contents |
 |---|---|
 | `unisnap_profiles` | JSON-encoded array of layout profiles |
-| `unisnap_quickswap_hotkey` | Quickcycle hotkey combination |
+| `unisnap_quickswap_hotkey` | Quickcycle forward hotkey combination |
+| `unisnap_quickswap_reverse_hotkey` | Quickcycle backward hotkey combination |
 | `unisnap_organise_hotkey` | Organise overlay hotkey |
-| `unisnap_theming_autoAdapt` | Wallpaper auto-adapt toggle |
+| `unisnap_theming_autoAdapt` | Theming auto-adapt toggle |
 | `unisnap_theming_color1` | Custom gradient colour 1 |
 | `unisnap_theming_color2` | Custom gradient colour 2 |
 | `unisnap_theming_opacity` | Background gradient opacity |
@@ -299,23 +314,11 @@ All settings are stored locally in `UserDefaults` under the `unisnap_` prefix:
 
 ## Known Bugs / Limitations
 
-- **macOS Quarantine** — app isn't signed so macOS may quarantine it. Run in the terminal: `xattr -d com.apple.quarantine /Applications/Unisnap.app` (though an ctrl+click -> open usually fixes it)
-- **Accessibility perms required** — some security software may block unisnap's Accessibility permissions;
-- **Menu bar only** — No Dock icon to minimise on-screen footprint. **Force-quit via literally any method if needed.**
+- **macOS Quarantine** — app isn't signed so macOS may quarantine it. Run `xattr -d com.apple.quarantine /Applications/unisnap.app` (but usually ctrl+click → open works as per guide)
+- **Accessibility perms required** — some security software may block unisnap's Accessibility permissions
+- **Menu bar only** — No Dock icon as part of design. Force-quit if hanging via force quit menu if needed.
 - **App Sandbox disabled** — Required for Accessibility API access. dw your data is not being sold in my basement
-- **No multi-monitor support** — Layouts only apply to the primary display.
-- **Beta Theming** - doesn't work always hence the beta
-- **etc** ...
-
----
-
-## Testing
-
-```bash
-xcodebuild test -project unisnap.xcodeproj -scheme unisnap
-```
-
-> idk what you want to test there's nothing to test
+- **No multi-monitor support** — Layouts only apply to the primary display
 
 ---
 

@@ -26,7 +26,13 @@ Package.resolved
 .AppleDouble
 .LSOverride
 
+# Build artifacts
+*.dmg
+*.zip
+
 # Code coverage
 *.profraw
 *.profdata
 default.profraw
+
+

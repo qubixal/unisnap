@@ -1,8 +1,7 @@
 //
 //  OrganiseView.swift
+//  Overlay to organise windows into the zones
 //  unisnap
-//
-//  Post-snap window arrangement overlay.
 //
 
 import SwiftUI
@@ -17,6 +16,18 @@ struct OrganiseView: View {
     @State private var zoneAssignments: [Int: WindowInfo] = [:]
     @State private var selectedZoneIndex: Int?
     @State private var availableWindows: [WindowInfo] = []
+
+    private struct GridDimensions {
+        let gridHeight: CGFloat
+        let cellW: CGFloat
+        let cellH: CGFloat
+
+        init(containerWidth: CGFloat, containerHeight: CGFloat, columns: Int, rows: Int) {
+            self.gridHeight = containerHeight * 0.7
+            self.cellW = containerWidth / CGFloat(columns)
+            self.cellH = gridHeight / CGFloat(rows)
+        }
+    }
 
     var body: some View {
         GeometryReader { geo in
@@ -65,28 +76,27 @@ struct OrganiseView: View {
     // MARK: - Zone Grid
 
     private func zoneGrid(geo: GeometryProxy) -> some View {
-        let gridHeight = geo.size.height * 0.7
-        let cellW = geo.size.width / CGFloat(profile.columns)
-        let cellH = gridHeight / CGFloat(profile.rows)
+        let dims = GridDimensions(containerWidth: geo.size.width, containerHeight: geo.size.height,
+                                  columns: profile.columns, rows: profile.rows)
 
         return VStack(spacing: 0) {
             Text(profile.name)
                 .font(.headline)
-                .foregroundColor(.white)
+                .foregroundStyle(.white)
                 .padding(.top, 20)
 
             Spacer()
 
             ZStack {
                 ForEach(Array(profile.zones.enumerated()), id: \.element.id) { i, zone in
-                    let rect = zone.cellRect(cellW: cellW, cellH: cellH, rows: profile.rows)
+                    let rect = zone.cellRect(cellW: dims.cellW, cellH: dims.cellH, rows: profile.rows)
 
                     zoneCard(zone: zone, index: i)
                         .frame(width: rect.width - 16, height: rect.height - 16)
                         .position(x: rect.midX, y: rect.midY)
                 }
             }
-            .frame(width: geo.size.width, height: gridHeight)
+            .frame(width: geo.size.width, height: dims.gridHeight)
 
             Spacer()
         }
@@ -112,21 +122,21 @@ struct OrganiseView: View {
                     }
                     Text(window.appName)
                         .font(.system(size: 13, weight: .medium))
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .lineLimit(1)
                     if !window.windowTitle.isEmpty {
                         Text(window.windowTitle)
                             .font(.system(size: 10))
-                            .foregroundColor(.white.opacity(0.7))
+                            .foregroundStyle(.white.opacity(0.7))
                             .lineLimit(1)
                     }
                 } else {
                     Image(systemName: "plus.circle")
                         .font(.system(size: 28))
-                        .foregroundColor(.white.opacity(0.5))
+                        .foregroundStyle(.white.opacity(0.5))
                     Text("Empty")
                         .font(.system(size: 12))
-                        .foregroundColor(.white.opacity(0.5))
+                        .foregroundStyle(.white.opacity(0.5))
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -145,11 +155,10 @@ struct OrganiseView: View {
     // MARK: - Window Picker
 
     private func windowPicker(for zoneIndex: Int, geo: GeometryProxy) -> some View {
-        let gridHeight = geo.size.height * 0.7
-        let cellW = geo.size.width / CGFloat(profile.columns)
-        let cellH = gridHeight / CGFloat(profile.rows)
+        let dims = GridDimensions(containerWidth: geo.size.width, containerHeight: geo.size.height,
+                                  columns: profile.columns, rows: profile.rows)
         let zone = profile.zones[zoneIndex]
-        let rect = zone.cellRect(cellW: cellW, cellH: cellH, rows: profile.rows)
+        let rect = zone.cellRect(cellW: dims.cellW, cellH: dims.cellH, rows: profile.rows)
 
         let pickerWidth: CGFloat = 240
         let itemCount = CGFloat(availableWindows.count)
@@ -160,7 +169,7 @@ struct OrganiseView: View {
         return VStack(alignment: .leading, spacing: 0) {
             Text("Pick a window")
                 .font(.system(size: 12, weight: .semibold))
-                .foregroundColor(.white.opacity(0.8))
+                .foregroundStyle(.white.opacity(0.8))
                 .padding(.horizontal, 12)
                 .padding(.vertical, 8)
 
@@ -181,11 +190,11 @@ struct OrganiseView: View {
                                 VStack(alignment: .leading, spacing: 1) {
                                     Text(window.appName)
                                         .font(.system(size: 12, weight: .medium))
-                                        .foregroundColor(.white)
+                                        .foregroundStyle(.white)
                                     if !window.windowTitle.isEmpty {
                                         Text(window.windowTitle)
                                             .font(.system(size: 10))
-                                            .foregroundColor(.white.opacity(0.5))
+                                            .foregroundStyle(.white.opacity(0.5))
                                             .lineLimit(1)
                                     }
                                 }
@@ -229,7 +238,7 @@ struct OrganiseView: View {
                 Button(action: onDone) {
                     Text("Done")
                         .font(.system(size: 13, weight: .medium))
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .padding(.horizontal, 20)
                         .padding(.vertical, 8)
                         .background(

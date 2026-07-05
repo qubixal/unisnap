@@ -13,34 +13,17 @@
 		8E64C0332FF7532000F89023 /* LayoutProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0342FF7532000F89023 /* LayoutProfile.swift */; };
 		8E64C0352FF7532000F89023 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0362FF7532000F89023 /* HotkeyManager.swift */; };
 		8E64C0372FF7532000F89023 /* ProfileEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0382FF7532000F89023 /* ProfileEditorView.swift */; };
-		8E64C03B2FF7532000F89023 /* WallpaperColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C03A2FF7532000F89023 /* WallpaperColors.swift */; };
+		8E64C03B2FF7532000F89023 /* SystemThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C03A2FF7532000F89023 /* SystemThemeProvider.swift */; };
 		8E64C03C2FF7532000F89023 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C03D2FF7532000F89023 /* SettingsView.swift */; };
 		8E64C03E2FF7532000F89023 /* ThemingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C03F2FF7532000F89023 /* ThemingSettings.swift */; };
 		8E64C0412FF7532000F89023 /* OrganiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0402FF7532000F89023 /* OrganiseView.swift */; };
 		8E64C0422FF7532000F89023 /* SharedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0432FF7532000F89023 /* SharedViews.swift */; };
 		8E64C0092FF7532100F89023 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E64C0082FF7532100F89023 /* Assets.xcassets */; };
 		8E64C00C2FF7532100F89023 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E64C00B2FF7532100F89023 /* Preview Assets.xcassets */; };
-		8E64C0172FF7532000F89023 /* unisnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0162FF7532000F89023 /* unisnapTests.swift */; };
-		8E64C0212FF7532000F89023 /* unisnapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0202FF7532000F89023 /* unisnapUITests.swift */; };
-		8E64C0232FF7532000F89023 /* unisnapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C0222FF7532000F89023 /* unisnapUITestsLaunchTests.swift */; };
+
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		8E64C0132FF7532100F89023 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8E64BFF92FF7532000F89023 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8E64C0002FF7532000F89023;
-			remoteInfo = unisnap;
-		};
-		8E64C01D2FF7532100F89023 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8E64BFF92FF7532000F89023 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8E64C0002FF7532000F89023;
-			remoteInfo = unisnap;
-		};
-/* End PBXContainerItemProxy section */
+
 
 /* Begin PBXFileReference section */
 		8E64C0012FF7532000F89023 /* unisnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unisnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,7 +33,7 @@
 		8E64C0342FF7532000F89023 /* LayoutProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutProfile.swift; sourceTree = "<group>"; };
 		8E64C0362FF7532000F89023 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
 		8E64C0382FF7532000F89023 /* ProfileEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorView.swift; sourceTree = "<group>"; };
-		8E64C03A2FF7532000F89023 /* WallpaperColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperColors.swift; sourceTree = "<group>"; };
+		8E64C03A2FF7532000F89023 /* SystemThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemThemeProvider.swift; sourceTree = "<group>"; };
 		8E64C03D2FF7532000F89023 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8E64C03F2FF7532000F89023 /* ThemingSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemingSettings.swift; sourceTree = "<group>"; };
 		8E64C0402FF7532000F89023 /* OrganiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganiseView.swift; sourceTree = "<group>"; };
@@ -58,29 +41,10 @@
 		8E64C0082FF7532100F89023 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E64C00B2FF7532100F89023 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8E64C00D2FF7532100F89023 /* unisnap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = unisnap.entitlements; sourceTree = "<group>"; };
-		8E64C0122FF7532100F89023 /* unisnapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unisnapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E64C0162FF7532000F89023 /* unisnapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unisnapTests.swift; sourceTree = "<group>"; };
-		8E64C01C2FF7532000F89023 /* unisnapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unisnapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E64C0202FF7532000F89023 /* unisnapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unisnapUITests.swift; sourceTree = "<group>"; };
-		8E64C0222FF7532000F89023 /* unisnapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unisnapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8E64BFFE2FF7532000F89023 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8E64C00F2FF7532100F89023 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8E64C0192FF7532100F89023 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -94,8 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				8E64C0032FF7532000F89023 /* unisnap */,
-				8E64C0152FF7532100F89023 /* unisnapTests */,
-				8E64C01F2FF7532100F89023 /* unisnapUITests */,
 				8E64C0022FF7532000F89023 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,8 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				8E64C0012FF7532000F89023 /* unisnap.app */,
-				8E64C0122FF7532100F89023 /* unisnapTests.xctest */,
-				8E64C01C2FF7532100F89023 /* unisnapUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,7 +81,7 @@
 				8E64C03D2FF7532000F89023 /* SettingsView.swift */,
 				8E64C03F2FF7532000F89023 /* ThemingSettings.swift */,
 				8E64C0312FF7532000F89023 /* WindowListHelper.swift */,
-				8E64C03A2FF7532000F89023 /* WallpaperColors.swift */,
+				8E64C03A2FF7532000F89023 /* SystemThemeProvider.swift */,
 				8E64C0402FF7532000F89023 /* OrganiseView.swift */,
 				8E64C0432FF7532000F89023 /* SharedViews.swift */,
 				8E64C0082FF7532100F89023 /* Assets.xcassets */,
@@ -137,23 +97,6 @@
 				8E64C00B2FF7532100F89023 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		8E64C0152FF7532100F89023 /* unisnapTests */ = {
-			isa = PBXGroup;
-			children = (
-				8E64C0162FF7532100F89023 /* unisnapTests.swift */,
-			);
-			path = unisnapTests;
-			sourceTree = "<group>";
-		};
-		8E64C01F2FF7532100F89023 /* unisnapUITests */ = {
-			isa = PBXGroup;
-			children = (
-				8E64C0202FF7532100F89023 /* unisnapUITests.swift */,
-				8E64C0222FF7532100F89023 /* unisnapUITestsLaunchTests.swift */,
-			);
-			path = unisnapUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,42 +119,6 @@
 			productReference = 8E64C0012FF7532000F89023 /* unisnap.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8E64C0112FF7532100F89023 /* unisnapTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8E64C0292FF7532100F89023 /* Build configuration list for PBXNativeTarget "unisnapTests" */;
-			buildPhases = (
-				8E64C00E2FF7532100F89023 /* Sources */,
-				8E64C00F2FF7532100F89023 /* Frameworks */,
-				8E64C0102FF7532100F89023 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8E64C0142FF7532100F89023 /* PBXTargetDependency */,
-			);
-			name = unisnapTests;
-			productName = unisnapTests;
-			productReference = 8E64C0122FF7532100F89023 /* unisnapTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		8E64C01B2FF7532100F89023 /* unisnapUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8E64C02C2FF7532100F89023 /* Build configuration list for PBXNativeTarget "unisnapUITests" */;
-			buildPhases = (
-				8E64C0182FF7532100F89023 /* Sources */,
-				8E64C0192FF7532100F89023 /* Frameworks */,
-				8E64C01A2FF7532100F89023 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8E64C01E2FF7532100F89023 /* PBXTargetDependency */,
-			);
-			name = unisnapUITests;
-			productName = unisnapUITests;
-			productReference = 8E64C01C2FF7532100F89023 /* unisnapUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -224,14 +131,6 @@
 				TargetAttributes = {
 					8E64C0002FF7532000F89023 = {
 						CreatedOnToolsVersion = 15.4;
-					};
-					8E64C0112FF7532100F89023 = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 8E64C0002FF7532000F89023;
-					};
-					8E64C01B2FF7532100F89023 = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 8E64C0002FF7532000F89023;
 					};
 				};
 			};
@@ -249,8 +148,6 @@
 			projectRoot = "";
 			targets = (
 				8E64C0002FF7532000F89023 /* unisnap */,
-				8E64C0112FF7532100F89023 /* unisnapTests */,
-				8E64C01B2FF7532100F89023 /* unisnapUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -262,20 +159,6 @@
 			files = (
 				8E64C00C2FF7532100F89023 /* Preview Assets.xcassets in Resources */,
 				8E64C0092FF7532100F89023 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8E64C0102FF7532100F89023 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8E64C01A2FF7532100F89023 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +175,7 @@
 				8E64C0352FF7532000F89023 /* HotkeyManager.swift in Sources */,
 				8E64C0372FF7532000F89023 /* ProfileEditorView.swift in Sources */,
 				8E64C0322FF7532000F89023 /* WindowListHelper.swift in Sources */,
-				8E64C03B2FF7532000F89023 /* WallpaperColors.swift in Sources */,
+				8E64C03B2FF7532000F89023 /* SystemThemeProvider.swift in Sources */,
 				8E64C03C2FF7532000F89023 /* SettingsView.swift in Sources */,
 				8E64C03E2FF7532000F89023 /* ThemingSettings.swift in Sources */,
 				8E64C0412FF7532000F89023 /* OrganiseView.swift in Sources */,
@@ -300,37 +183,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8E64C00E2FF7532100F89023 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8E64C0172FF7532100F89023 /* unisnapTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8E64C0182FF7532100F89023 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8E64C0212FF7532100F89023 /* unisnapUITests.swift in Sources */,
-				8E64C0232FF7532100F89023 /* unisnapUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8E64C0142FF7532100F89023 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8E64C0002FF7532000F89023 /* unisnap */;
-			targetProxy = 8E64C0132FF7532100F89023 /* PBXContainerItemProxy */;
-		};
-		8E64C01E2FF7532100F89023 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8E64C0002FF7532000F89023 /* unisnap */;
-			targetProxy = 8E64C01D2FF7532100F89023 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8E64C0242FF7532100F89023 /* Debug */ = {
@@ -505,74 +358,6 @@
 			};
 			name = Release;
 		};
-		8E64C02A2FF7532100F89023 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.qubixal.unisnapTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/unisnap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/unisnap";
-			};
-			name = Debug;
-		};
-		8E64C02B2FF7532100F89023 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.qubixal.unisnapTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/unisnap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/unisnap";
-			};
-			name = Release;
-		};
-		8E64C02D2FF7532100F89023 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.qubixal.unisnapUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = unisnap;
-			};
-			name = Debug;
-		};
-		8E64C02E2FF7532100F89023 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.qubixal.unisnapUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = unisnap;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -590,24 +375,6 @@
 			buildConfigurations = (
 				8E64C0272FF7532100F89023 /* Debug */,
 				8E64C0282FF7532100F89023 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8E64C0292FF7532100F89023 /* Build configuration list for PBXNativeTarget "unisnapTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8E64C02A2FF7532100F89023 /* Debug */,
-				8E64C02B2FF7532100F89023 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8E64C02C2FF7532100F89023 /* Build configuration list for PBXNativeTarget "unisnapUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8E64C02D2FF7532100F89023 /* Debug */,
-				8E64C02E2FF7532100F89023 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

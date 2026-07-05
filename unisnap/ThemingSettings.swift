@@ -1,18 +1,16 @@
 //
 //  ThemingSettings.swift
+//  Theming settings
 //  unisnap
-//
-//  Persisted theming preferences with auto-adapt to wallpaper support.
 //
 
 import SwiftUI
-import Combine
 
 final class ThemingSettings: ObservableObject {
     static let shared = ThemingSettings()
 
-    @Published var autoAdaptToWallpaper: Bool {
-        didSet { UserDefaults.standard.set(autoAdaptToWallpaper, forKey: Keys.autoAdapt) }
+    @Published var autoAdaptToSystem: Bool {
+        didSet { UserDefaults.standard.set(autoAdaptToSystem, forKey: Keys.autoAdapt) }
     }
 
     @Published var customColor1: Color {
@@ -35,7 +33,7 @@ final class ThemingSettings: ObservableObject {
     }
 
     private init() {
-        self.autoAdaptToWallpaper = UserDefaults.standard.object(forKey: Keys.autoAdapt) as? Bool ?? false
+        self.autoAdaptToSystem = UserDefaults.standard.object(forKey: Keys.autoAdapt) as? Bool ?? false
         self.gradientOpacity = UserDefaults.standard.object(forKey: Keys.opacity) as? Double ?? 0.25
 
         if let data = UserDefaults.standard.data(forKey: Keys.color1),
@@ -53,8 +51,8 @@ final class ThemingSettings: ObservableObject {
         }
     }
 
-    func activeColors(wallpaperColors: [Color]) -> [Color] {
-        autoAdaptToWallpaper ? wallpaperColors : [customColor1, customColor2]
+    func activeColors(systemColors: [Color]) -> [Color] {
+        autoAdaptToSystem ? systemColors : [customColor1, customColor2]
     }
 
     private func save() {

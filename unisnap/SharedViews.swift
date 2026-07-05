@@ -1,8 +1,7 @@
 //
 //  SharedViews.swift
+//  shared views
 //  unisnap
-//
-//  Reusable view components shared across the app.
 //
 
 import SwiftUI
@@ -26,6 +25,7 @@ func glassCard<Content: View>(cornerRadius: CGFloat = 12, padding: CGFloat = 16,
 // MARK: - Hotkey Recorder Row
 
 struct HotkeyRecorderRow: View {
+    let label: String
     let displayString: String?
     let set: (HotkeyCombo) -> Void
     let clear: () -> Void
@@ -35,7 +35,7 @@ struct HotkeyRecorderRow: View {
 
     var body: some View {
         HStack(spacing: 10) {
-            Text("Shortcut:")
+            Text(label)
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .frame(width: 70, alignment: .trailing)
@@ -48,7 +48,7 @@ struct HotkeyRecorderRow: View {
                         .transition(.scale)
                     Text("Press keys (ESC to quit)...")
                         .font(.system(.body, design: .monospaced))
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
                 .padding(.horizontal, 10).padding(.vertical, 6)
                 .background {
@@ -74,7 +74,7 @@ struct HotkeyRecorderRow: View {
                     }
                     .onTapGesture { startRecording() }
 
-                Button(action: clearHotkey) {
+                Button(action: clear) {
                     Image(systemName: "xmark.circle.fill")
                         .foregroundStyle(.quaternary)
                 }
@@ -83,7 +83,7 @@ struct HotkeyRecorderRow: View {
                 Button(action: startRecording) {
                     Text("Click to set")
                         .font(.system(.body, design: .monospaced))
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .padding(.horizontal, 10).padding(.vertical, 6)
                         .background {
                             RoundedRectangle(cornerRadius: 6, style: .continuous)
@@ -98,6 +98,12 @@ struct HotkeyRecorderRow: View {
             }
 
             Spacer()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: HotkeyRecorder.didStartRecording)) { notification in
+            if isRecording, let sender = notification.object as? HotkeyRecorder, sender !== recorder {
+                recorder.stopRecording()
+                isRecording = false
+            }
         }
     }
 
@@ -116,9 +122,5 @@ struct HotkeyRecorderRow: View {
     private func cancelRecording() {
         recorder.stopRecording()
         isRecording = false
-    }
-
-    private func clearHotkey() {
-        clear()
     }
 }

@@ -1,17 +1,40 @@
 //
 //  SettingsView.swift
+//  Setting sidebar View -> Sidebar -> Content
 //  unisnap
-//
-//  Left sidebar navigation: General, Shortcuts, Profiles.
 //
 
 import SwiftUI
+
+// MARK: - NSVisualEffectView Wrapper
+
+struct VisualEffectView: NSViewRepresentable {
+    let material: NSVisualEffectView.Material
+    let blendingMode: NSVisualEffectView.BlendingMode
+    let isEmphasized: Bool
+
+    func makeNSView(context: Context) -> NSVisualEffectView {
+        let view = NSVisualEffectView()
+        view.material = material
+        view.blendingMode = blendingMode
+        view.isEmphasized = isEmphasized
+        view.state = .active
+        view.wantsLayer = true
+        return view
+    }
+
+    func updateNSView(_ nsView: NSVisualEffectView, context: Context) {
+        nsView.material = material
+        nsView.blendingMode = blendingMode
+        nsView.isEmphasized = isEmphasized
+    }
+}
 
 // MARK: - SettingsView
 
 struct SettingsView: View {
     @ObservedObject var store: ProfileStore
-    @StateObject private var wallpaper = WallpaperColors()
+    @StateObject private var systemTheme = SystemThemeProvider()
     @StateObject private var theming = ThemingSettings.shared
     @State private var selectedTab: SettingsTab? = .general
     @State private var selectedProfileID: UUID?
@@ -38,8 +61,15 @@ struct SettingsView: View {
         }
         .background {
             ZStack {
+                VisualEffectView(
+                    material: .underWindowBackground,
+                    blendingMode: .behindWindow,
+                    isEmphasized: true
+                )
+                .ignoresSafeArea()
+
                 LinearGradient(
-                    colors: theming.activeColors(wallpaperColors: wallpaper.colors).map { $0.opacity(theming.gradientOpacity * 0.6) },
+                    colors: theming.activeColors(systemColors: systemTheme.systemColors).map { $0.opacity(theming.gradientOpacity * 0.6) },
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 )
@@ -82,14 +112,11 @@ struct SettingsView: View {
             sidebarDetail
         }
         .background {
-            RoundedRectangle(cornerRadius: 0, style: .continuous)
-                .fill(.ultraThinMaterial)
-                .overlay {
-                    Rectangle()
-                        .fill(.white.opacity(0.05))
-                        .frame(width: 0.5)
-                        .frame(maxHeight: .infinity, alignment: .trailing)
-                }
+            VisualEffectView(
+                material: .sidebar,
+                blendingMode: .behindWindow,
+                isEmphasized: false
+            )
         }
         .frame(minWidth: 150, idealWidth: 170)
     }
@@ -109,18 +136,12 @@ struct SettingsView: View {
                 .buttonStyle(.borderless)
             }
             .padding(.horizontal)
-            .padding(.vertical, 8)
+            .padding(.top, 4)
+            .padding(.bottom, 2)
 
             List(store.profiles, selection: $selectedProfileID) { profile in
-                HStack {
-                    if profile.isFavourite {
-                        Image(systemName: "star.fill")
-                            .foregroundColor(.yellow)
-                            .font(.system(size: 10))
-                    }
-                    Text(profile.name)
-                }
-                .tag(profile.id)
+                ProfileRow(profile: profile, store: store)
+                    .tag(profile.id)
             }
             .listStyle(.sidebar)
         case .none:
@@ -134,7 +155,7 @@ struct SettingsView: View {
     private var detail: some View {
         switch selectedTab {
         case .general:
-            ThemingContent(wallpaper: wallpaper, theming: theming)
+            ThemingContent(systemTheme: systemTheme, theming: theming)
                 .padding(20)
         case .shortcuts:
             ShortcutsContent(store: store)
@@ -159,6 +180,37 @@ struct SettingsView: View {
     }
 }
 
+// MARK: - Profile Row
+
+struct ProfileRow: View {
+    let profile: LayoutProfile
+    @ObservedObject var store: ProfileStore
+    @State private var isHovering = false
+
+    var body: some View {
+        HStack(spacing: 4) {
+            Button(action: toggleFavourite) {
+                Image(systemName: profile.isFavourite ? "star.fill" : "star")
+                    .foregroundStyle(profile.isFavourite ? .yellow : .secondary)
+                    .font(.system(size: 10))
+            }
+            .buttonStyle(.plain)
+            .opacity(isHovering || profile.isFavourite ? 1 : 0)
+
+            Text(profile.name)
+        }
+        .onHover { hovering in
+            withAnimation(.easeInOut(duration: 0.15)) {
+                isHovering = hovering
+            }
+        }
+    }
+
+    private func toggleFavourite() {
+        store.toggleFavourite(for: profile.id)
+    }
+}
+
 // MARK: - Section Header
 
 private func sectionHeader(_ title: String) -> some View {
@@ -169,7 +221,7 @@ private func sectionHeader(_ title: String) -> some View {
 // MARK: - Theming Content
 
 struct ThemingContent: View {
-    @ObservedObject var wallpaper: WallpaperColors
+    @ObservedObject var systemTheme: SystemThemeProvider
     @ObservedObject var theming: ThemingSettings
 
     var body: some View {
@@ -179,28 +231,17 @@ struct ThemingContent: View {
 
             glassCard {
                 VStack(alignment: .leading, spacing: 12) {
-                    Toggle(isOn: $theming.autoAdaptToWallpaper) {
+                    Toggle(isOn: $theming.autoAdaptToSystem) {
                         VStack(alignment: .leading, spacing: 2) {
-                            HStack(spacing: 6) {
-                                Text("Auto-adapt to wallpaper")
-                                Text("Beta")
-                                    .font(.system(size: 9, weight: .semibold))
-                                    .foregroundColor(.white)
-                                    .padding(.horizontal, 5)
-                                    .padding(.vertical, 1)
-                                    .background(
-                                        Capsule()
-                                            .fill(Color.orange.opacity(0.8))
-                                    )
-                            }
-                            Text("Extract dominant colors from your desktop wallpaper")
+                            Text("Auto-adapt to system")
+                            Text("Derive gradient from your accent colour and appearance")
                                 .font(.caption).foregroundStyle(.secondary)
                         }
                     }
                     .toggleStyle(.switch)
 
-                    if theming.autoAdaptToWallpaper {
-                        wallpaperPreview
+                    if theming.autoAdaptToSystem {
+                        systemPreview
                     } else {
                         manualColorPicker
                     }
@@ -225,7 +266,7 @@ struct ThemingContent: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Preview")
                         .font(.subheadline)
-                    let colors = theming.activeColors(wallpaperColors: wallpaper.colors)
+                    let colors = theming.activeColors(systemColors: systemTheme.systemColors)
                     LinearGradient(
                         colors: colors.map { $0.opacity(theming.gradientOpacity) },
                         startPoint: .topLeading,
@@ -244,13 +285,13 @@ struct ThemingContent: View {
         }
     }
 
-    private var wallpaperPreview: some View {
+    private var systemPreview: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Detected colors")
+            Text("System colours")
                 .font(.caption)
                 .foregroundStyle(.secondary)
             HStack(spacing: 10) {
-                ForEach(Array(wallpaper.colors.enumerated()), id: \.offset) { _, color in
+                ForEach(Array(systemTheme.systemColors.enumerated()), id: \.offset) { _, color in
                     RoundedRectangle(cornerRadius: 8, style: .continuous)
                         .fill(color)
                         .frame(width: 44, height: 44)
@@ -260,6 +301,12 @@ struct ThemingContent: View {
                         }
                         .shadow(color: .black.opacity(0.15), radius: 3, y: 1)
                 }
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(systemTheme.isDarkMode ? "Dark Mode" : "Light Mode")
+                        .font(.caption).fontWeight(.medium)
+                    Text("Accent colour")
+                        .font(.caption2).foregroundStyle(.secondary)
+                }
                 Spacer()
             }
         }
@@ -267,7 +314,7 @@ struct ThemingContent: View {
 
     private var manualColorPicker: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Custom colors")
+            Text("Custom colours")
                 .font(.caption)
                 .foregroundStyle(.secondary)
             HStack(spacing: 16) {
@@ -289,16 +336,25 @@ struct ShortcutsContent: View {
                 .padding(.bottom, 4)
 
             glassCard {
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 10) {
                     Text("Quickcycle")
                         .font(.subheadline).fontWeight(.medium)
-                    Text("Press this hotkey to cycle through all your layout profiles in order.")
+                    Text("Press a hotkey to cycle through all your layout profiles.")
                         .font(.caption).foregroundStyle(.secondary)
-                    HotkeyRecorderRow(
-                        displayString: store.quickswapHotkey?.displayString,
-                        set: { store.quickswapHotkey = $0; store.save() },
-                        clear: { store.quickswapHotkey = nil; store.save() }
-                    )
+                    VStack(alignment: .leading, spacing: 6) {
+                        HotkeyRecorderRow(
+                            label: "Forward:",
+                            displayString: store.quickswapHotkey?.displayString,
+                            set: { store.quickswapHotkey = $0; store.save() },
+                            clear: { store.quickswapHotkey = nil; store.save() }
+                        )
+                        HotkeyRecorderRow(
+                            label: "Backward:",
+                            displayString: store.quickswapReverseHotkey?.displayString,
+                            set: { store.quickswapReverseHotkey = $0; store.save() },
+                            clear: { store.quickswapReverseHotkey = nil; store.save() }
+                        )
+                    }
                 }
             }
 
@@ -309,6 +365,7 @@ struct ShortcutsContent: View {
                     Text("Press this hotkey to open the window organisation overlay after snapping. Click a zone, then pick an opened window to place there.")
                         .font(.caption).foregroundStyle(.secondary)
                     HotkeyRecorderRow(
+                        label: "Shortcut:",
                         displayString: store.organiseHotkey?.displayString,
                         set: { store.organiseHotkey = $0; store.save() },
                         clear: { store.organiseHotkey = nil; store.save() }

@@ -1,8 +1,8 @@
 //
 //  HotkeyManager.swift
+//  Manages global hotkey detection
 //  unisnap
 //
-//  Created by qubixal on 3/7/2026.
 //
 
 import Cocoa
@@ -13,12 +13,14 @@ final class HotkeyManager {
     private var eventMonitor: Any?
     private var profileStore: ProfileStore
     private var onQuickswap: () -> Void
+    private var onQuickswapReverse: () -> Void
     private var onProfileHotkey: (UUID) -> Void
     private var onOrganise: () -> Void
 
-    init(profileStore: ProfileStore, onQuickswap: @escaping () -> Void, onProfileHotkey: @escaping (UUID) -> Void, onOrganise: @escaping () -> Void) {
+    init(profileStore: ProfileStore, onQuickswap: @escaping () -> Void, onQuickswapReverse: @escaping () -> Void, onProfileHotkey: @escaping (UUID) -> Void, onOrganise: @escaping () -> Void) {
         self.profileStore = profileStore
         self.onQuickswap = onQuickswap
+        self.onQuickswapReverse = onQuickswapReverse
         self.onProfileHotkey = onProfileHotkey
         self.onOrganise = onOrganise
     }
@@ -44,6 +46,11 @@ final class HotkeyManager {
             return
         }
 
+        if let quickswapReverse = profileStore.quickswapReverseHotkey, combo == quickswapReverse {
+            onQuickswapReverse()
+            return
+        }
+
         if let organise = profileStore.organiseHotkey, combo == organise {
             onOrganise()
             return
@@ -61,10 +68,14 @@ final class HotkeyManager {
 // MARK: - Hotkey Recording
 
 final class HotkeyRecorder: ObservableObject {
+    static let didStartRecording = Notification.Name("hotkeyRecorderDidStart")
+    private static var active: HotkeyRecorder?
     private var localMonitor: Any?
 
     func startRecording(completion: @escaping (HotkeyCombo?) -> Void) {
-        NSApp.activate(ignoringOtherApps: true)
+        HotkeyRecorder.active?.stopRecording()
+
+        NSApp.activate()
 
         let handler: (NSEvent) -> NSEvent = { [weak self] event in
             guard self != nil else { return event }
@@ -80,12 +91,17 @@ final class HotkeyRecorder: ObservableObject {
         }
 
         localMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown, handler: handler)
+        HotkeyRecorder.active = self
+        NotificationCenter.default.post(name: Self.didStartRecording, object: self)
     }
 
     func stopRecording() {
         if let m = localMonitor {
             NSEvent.removeMonitor(m)
             localMonitor = nil
+        }
+        if HotkeyRecorder.active === self {
+            HotkeyRecorder.active = nil
         }
     }
 }

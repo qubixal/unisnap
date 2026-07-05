@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
+//  App lifecycle, Accessibility permission handling, menu management
 //  unisnap
 //
-//  Created by qubixal on 3/7/2026.
 //
 
 import Cocoa
@@ -46,6 +46,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             profileStore: store,
             onQuickswap: { [weak self] in
                 DispatchQueue.main.async { self?.cycleToNextProfile() }
+            },
+            onQuickswapReverse: { [weak self] in
+                DispatchQueue.main.async { self?.cycleToPreviousProfile() }
             },
             onProfileHotkey: { [weak self] id in
                 DispatchQueue.main.async { self?.activateProfile(id) }
@@ -97,7 +100,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let others = store.profiles.filter { !$0.isFavourite }
 
             if let quickswap = store.quickswapHotkey {
-                let item = NSMenuItem(title: "Cycle Layouts (\(quickswap.displayString))", action: #selector(cycleLayouts), keyEquivalent: "")
+                let title: String
+                if let reverse = store.quickswapReverseHotkey {
+                    title = "Cycle Layouts (\(quickswap.displayString) / \(reverse.displayString))"
+                } else {
+                    title = "Cycle Layouts (\(quickswap.displayString))"
+                }
+                let item = NSMenuItem(title: title, action: #selector(cycleLayouts), keyEquivalent: "")
+                item.target = self
+                menu.addItem(item)
+            } else if let reverse = store.quickswapReverseHotkey {
+                let item = NSMenuItem(title: "Cycle Layouts (\(reverse.displayString))", action: #selector(cycleLayouts), keyEquivalent: "")
                 item.target = self
                 menu.addItem(item)
             } else {
@@ -187,6 +200,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         snapWindows(to: profile)
     }
 
+    func cycleToPreviousProfile() {
+        guard let store = profileStore, !store.profiles.isEmpty else { return }
+        currentProfileIndex = (currentProfileIndex - 1 + store.profiles.count) % store.profiles.count
+        let profile = store.profiles[currentProfileIndex]
+        updateStatusBarIcon(profile: profile)
+        snapWindows(to: profile)
+    }
+
     func activateProfile(_ id: UUID) {
         guard let store = profileStore,
               let profile = store.profiles.first(where: { $0.id == id }) else { return }
@@ -202,7 +223,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         if let existing = editorWindow {
             existing.makeKeyAndOrderFront(nil)
-            NSApp.activate(ignoringOtherApps: true)
+            NSApp.activate()
             return
         }
 
@@ -212,14 +233,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                               styleMask: [.titled, .closable, .resizable],
                               backing: .buffered,
                               defer: false)
-        window.title = "Unisnap Settings"
+        window.title = "unisnap Settings"
         window.contentView = hostingView
         window.minSize = NSSize(width: 520, height: 380)
         window.center()
         window.isReleasedWhenClosed = false
         editorWindow = window
         window.makeKeyAndOrderFront(nil)
-        NSApp.activate(ignoringOtherApps: true)
+        NSApp.activate()
     }
 
     func showOrganise() {
@@ -263,19 +284,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         panel.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         panel.isReleasedWhenClosed = false
         panel.orderFront(nil)
-        NSApp.activate(ignoringOtherApps: true)
+        NSApp.activate()
         organiseWindow = panel
     }
 
     // MARK: - Accessibility Permission
 
     private func promptForAccessibility() {
-        NSApp.activate(ignoringOtherApps: true)
+        NSApp.activate()
 
         DispatchQueue.main.async {
             let alert = NSAlert()
             alert.messageText = "Accessibility Permission Required"
-            alert.informativeText = "Unisnap needs Accessibility access to detect global key presses and move windows.\n\nClick Open to grant permission, then toggle unisnap ON in System Settings."
+            alert.informativeText = "unisnap needs Accessibility access to detect global key presses and move windows.\n\nClick Open to grant permission, then toggle unisnap ON in System Settings."
             alert.addButton(withTitle: "Open System Settings")
             alert.addButton(withTitle: "Later")
             alert.alertStyle = .warning
