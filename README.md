@@ -68,6 +68,7 @@ Why not use rectangle, raycast, etc.?
 | **Hardware** | Any Mac (Intel/AppleSil) |
 
 > **Note:** I only have a M1 MBP and cannot test for any devices, or macOS versions other than 14.8.5.
+> **Extended Note:** I now have a M4 MBP and it works... sort of? (26.3 Tahoe)
 
 ---
 
